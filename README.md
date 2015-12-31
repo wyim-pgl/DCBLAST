@@ -3,11 +3,12 @@
 #DCBLAST
  The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerateDC BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical with extremely easy access, robust and practical approach.
 
- 
+
 ##Requirement
 
 -Sun Grid Engine (Any version)
--Grid, cloud, distributed computing system.
+
+-Grid cloud or distributed computing system.
 
 ##Prerequisites
 
@@ -21,12 +22,13 @@ The following Perl modules are required:
 - Data::Dumper
 
 Install prerequisites with the following command:
-
+```
 $ cpan `cat requirement`
-
+```
 or
-
+```
 $ cpanm `cat requirement`
+```
 
 We strongly recommend to use Perlbrew http://perlbrew.pl/ and cpanm https://github.com/miyagawa/cpanminus
 
@@ -39,6 +41,9 @@ The program is a single file Perl scripts. Copy it into executive directories.
 
 #Configuration
 
+Please edit config.ini
+
+```
 [dcblast]
 ##Name of job
 job_name_prefix=dcblast11
@@ -76,8 +81,9 @@ cwd=
 ```
 If you need any other options for your enviroment please contant us.
 
-#Usage
+##Usage
 
+```
 
 Usage : dcblast.pl --input input-fasta --size size-of-group --output output-filename-prefix --db fasta-dbfilename --blast blast-command-name
   --ini <ini filename>
@@ -89,7 +95,7 @@ Usage : dcblast.pl --input input-fasta --size size-of-group --output output-file
 ```
 
 
-#Examples
+##Examples
 
 
 ```
@@ -110,6 +116,6 @@ Won Cheol Yim and John Cushman (2015) Divide and Conquer BLAST: using grid engin
 
 
 
-## COPYRIGHT
+##Copyright
 
 The program is copyright by Yim, Won Cheol.
