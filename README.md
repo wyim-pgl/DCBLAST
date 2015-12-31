@@ -32,12 +32,12 @@ We strongly recommend to use Perlbrew http://perlbrew.pl/ and cpanm https://gith
 
 
 
-#Installation
+##Installation
 
 The program is a single file Perl scripts. Copy it into executive directories.
 
 
-#Configuration
+##Configuration
 
 Please edit config.ini before you run!!
 
@@ -113,7 +113,7 @@ DONE
 ###Run
 
 ```
-perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn --dryrun
+perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn 
 ```
 
 This run will splits file into 20 chunks, run on 20 cores and generated BLAST output file "test.result.merged"
