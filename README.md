@@ -16,8 +16,6 @@ The program requires Perl to run.
 
 The following Perl modules are required:
 
-- Getopt::Long
-- Config::Tiny
 - Path::Tiny
 - Data::Dumper
 
