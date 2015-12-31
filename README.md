@@ -95,7 +95,7 @@ Usage : dcblast.pl --input input-fasta --size size-of-group --output output-file
 
 ##Examples
 
-
+###Dryrun (--dryrun option will only split fasta file into chunks)
 ```
 perl dcblast.pl --ini config.ini --input test.fas --output o --size 20 --blast blastn --dryrun
 ```
@@ -108,6 +108,14 @@ DRYRUN COMMAND : [qsub, -M, wyim@unr.edu, -cwd, -j, yes, -pe, SharedMem, 1, -q, 
 DRYRUN COMMAND : [qstat]
 DONE
 ```
+###Run
+
+```
+perl dcblast.pl --ini config.ini --input test.fas --output o --size 20 --blast blastn --dryrun
+```
+
+This run will splits file into 20 chunks, run on 20 cores and generated BLAST output file "o.result.merged"
+
 
 ##Citation
 Won Cheol Yim and John Cushman (2015) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. Bioinformatics apllication note submitted.
