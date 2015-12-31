@@ -1,7 +1,7 @@
 
 
 #DCBLAST
- The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerateDC BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical with extremely easy access, robust and practical approach.
+ The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerate BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical with extremely easy access, robust and practical approach.
 
 
 ##Requirement
@@ -39,21 +39,23 @@ The program is a single file Perl scripts. Copy it into executive directories.
 
 #Configuration
 
-Please edit config.ini
+Please edit config.ini before you run!!
 
 ```
 [dcblast]
 ##Name of job
-job_name_prefix=dcblast11
+job_name_prefix=dcblast
 
 [blast]
 ##BLAST options
 
-##BLAST path 
+##BLAST path (your blast+ path)
 path=~/bin/blast/ncbi-blast-2.2.30+/bin/
 
-##DB path
-db=Athaliana_167_cds.fa
+##DB path (build your own BLAST DB)
+##example
+##makeblastdb -in example/test_db.fas -dbtype nucl
+db=example/test_db.fas
 
 ##Evalue cut-off (See BLAST manual)
 evalue=1e-05
@@ -62,7 +64,7 @@ evalue=1e-05
 num_threads=2
 
 ##Max target sequence output (See BLAST manual)
-max_target_seqs=
+max_target_seqs=1
 
 ##Output format (See BLAST manual)
 outfmt=6
@@ -97,7 +99,7 @@ Usage : dcblast.pl --input input-fasta --size size-of-group --output output-file
 
 ###Dryrun (--dryrun option will only split fasta file into chunks)
 ```
-perl dcblast.pl --ini config.ini --input test.fas --output o --size 20 --blast blastn --dryrun
+perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn --dryrun
 ```
 
 ```
@@ -111,10 +113,10 @@ DONE
 ###Run
 
 ```
-perl dcblast.pl --ini config.ini --input test.fas --output o --size 20 --blast blastn --dryrun
+perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn --dryrun
 ```
 
-This run will splits file into 20 chunks, run on 20 cores and generated BLAST output file "o.result.merged"
+This run will splits file into 20 chunks, run on 20 cores and generated BLAST output file "test.result.merged"
 
 
 ##Citation
