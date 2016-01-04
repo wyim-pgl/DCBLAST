@@ -74,6 +74,7 @@ outfmt=6
 ##please check your job submission scripts
 pe=SharedMem 1
 M=your@email
+o=log
 q=common.q
 j=yes
 cwd=
@@ -102,12 +103,12 @@ Usage : dcblast.pl --input input-fasta --size size-of-group --output output-file
 perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn --dryrun
 ```
 ```
-DRYRUN COMMAND : [chmod +x dcblast_blastcmd.sh]
-DRYRUN COMMAND : [chmod +x dcblast_merge.sh]
-DRYRUN COMMAND : [qsub, -M, your@email, -cwd, -j, yes, -pe, SharedMem, 1, -q, common.q, -N, dcblast_split, -t, 1-20, dcblast_blastcmd.sh]
-DRYRUN COMMAND : [qsub, -M, your@email, -cwd, -j, yes, -pe, SharedMem, 1, -q, common.q, -hold_jid, dcblast_split, -N, dcblast_merge, dcblast_merge.sh, test.result, 20]
+DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q common.q -N dcblast_split -t 1-20 dcblast_blastcmd.sh]
+DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q common.q -hold_jid dcblast_split -N dcblast_merge dcblast_merge.sh test/results 20]
 DRYRUN COMMAND : [qstat]
 DONE
+
+
 ```
 ###Run
 
@@ -115,7 +116,7 @@ DONE
 perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn 
 ```
 
-This run will splits file into 20 chunks, run on 20 cores and generated BLAST output file "test.result.merged"
+This run will splits file into 20 chunks, run on 20 cores and generated BLAST output file "test/results/merged" and chunked input file "test/chunks/"
 
 
 ##Citation
