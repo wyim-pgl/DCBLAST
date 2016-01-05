@@ -84,14 +84,21 @@ If you need any other options for your enviroment please contant us.
 
 ##Usage
 
-```
 
-Usage : dcblast.pl --input input-fasta --size size-of-group --output output-filename-prefix --db fasta-dbfilename --blast blast-command-name
-  --ini <ini filename>
-  --input <input filename>
-  --size <output size>
-  --output <output filename>
-  --blast <blast name>
+```
+perl dcblast.pl
+
+Usage : dcblast.pl --input input-fasta --size size-of-group --output output-filename-prefix  --blast blast-program-name
+
+  --ini <ini filename> ##config file ex)config.ini
+
+  --input <input filename> ##query fasta file
+
+  --size <output size> ## size of chunks usually all core x 2, if you have 160 core all nodes, you can use 320. please check it to your admin.
+
+  --output <output filename> ##output name
+
+  --blast <blast name> ##blastp, blastx, blastn and etcs.
 
 ```
 
