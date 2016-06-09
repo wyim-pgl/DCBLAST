@@ -127,7 +127,7 @@ This run will splits file into 20 chunks, run on 20 cores and generated BLAST ou
 
 
 ##Citation
-Won Cheol Yim and John Cushman (2015) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. Bioinformatics apllication note submitted.
+Won Cheol Yim and John Cushman (2015) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. Bioinformatics apllication note Rejected.
 
 
 
