@@ -5,6 +5,7 @@
 
 
 ##Requirement
+-NCBI-BLAST+ (Any version)
 
 -Sun Grid Engine (Any version)
 
