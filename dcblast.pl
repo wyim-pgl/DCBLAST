@@ -120,7 +120,7 @@ sub split_fasta {
         for my $seq (@list) {
             $tmp_size += length($seq);
             $tmp_count++;
-            last if $tmp_size > $group_size;
+            last if $tmp_size >= $group_size;
         }
 
         my $split = sprintf("%s/split.%04d", $paths->{chunks}, $cnt+1);
