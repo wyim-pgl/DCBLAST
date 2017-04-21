@@ -23,7 +23,7 @@ ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 
 For using recent version, please update BLAST path in config.ini
 
-
+```
 
 $ which blastn
 ```
@@ -240,7 +240,3 @@ makeblastdb -in your-protein-db.fas -dbtype prot ###for protein sequence
 
 ## Citation
 Won Cheol Yim and John Cushman (2017) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. PeerJ submitted.
-
-## Copyright
-
-The program is copyright by Yim, Won Cheol.
