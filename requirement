@@ -1,2 +1,3 @@
 Path::Tiny
 Data::Dumper
+Config::Tiny
