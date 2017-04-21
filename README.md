@@ -24,7 +24,7 @@ ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 For using recent version, please update BLAST path in config.ini
 
 
-
+```
 $ which blastn
 ```
 
