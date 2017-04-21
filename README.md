@@ -96,7 +96,7 @@ Usage : dcblast.pl --ini config.ini --input input-fasta --size size-of-group --o
 
 ## Configuration
 
-#Please edit config.ini before you run!!
+# Please edit config.ini before you run!!
 
 ```
 [dcblast]
