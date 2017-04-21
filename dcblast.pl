@@ -202,7 +202,7 @@ sub run_command {
 
 sub usage {
     print STDERR <<HELP;
-Usage : $0 --input input-fasta --size size-of-group --output output-filename-prefix  --blast blast-program-name
+Usage : $0 --ini <ini filename> --input <input-fasta> --size <size-of-group> --output <output-filename-prefix>  --blast <blast-program-name>
 
   --ini <ini filename> ##config file ex)config.ini
 
