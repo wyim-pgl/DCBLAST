@@ -189,8 +189,6 @@ DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q commo
 DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q common.q -hold_jid dcblast_split -N dcblast_merge dcblast_merge.sh test/results 20]
 DRYRUN COMMAND : [qstat]
 DONE
-
-
 ```
 Check the test folder "test/chunks/" for sequence split result.
 
@@ -206,13 +204,4 @@ This run will splits file into 20 chunks, run on 20 cores and generated BLAST ou
 
 ## Citation
 Won Cheol Yim and John Cushman (2017) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. PeerJ submitted.
-
-
-
-## Copyright
-
-The program is copyright by Yim, Won Cheol.
-
-
-
 
