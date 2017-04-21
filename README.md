@@ -1,6 +1,9 @@
 # DCBLAST
 
-The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerate BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical with extremely easy access, robust and practical approach.
+The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerate BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical approach. 
+
+- DCBLAST suppport all NCBI-BLAST+ suite.
+- DCBLAST generate exact same NCBI-BLAST+ result.
 
 
 ## Requirement
@@ -15,8 +18,13 @@ $ perl --version
 ```
 
 - NCBI-BLAST+ (Any version)
+for easy approach, you can download binary version of blast from below link.
+ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 
-```
+For using recent version, please update BLAST path in config.ini
+
+
+
 $ which blastn
 ```
 
@@ -77,7 +85,7 @@ Usage : dcblast.pl --ini config.ini --input input-fasta --size size-of-group --o
 
   --input <input filename> ##query fasta file
 
-  --size <output size> ## size of chunks usually a ll core x 2, if you have 160 core all nodes, you can use 320. please check it to your admin.
+  --size <output size> ## size of chunks usually all core x 2, if you have 160 core all nodes, you can use 320. please check it to your admin.
 
   --output <output filename> ##output folder name
 
@@ -124,6 +132,10 @@ max_target_seqs=1
 outfmt=6
 
 ##any other option can be add it this area
+#matrix=BLOSUM62
+#gapopen=11
+#gapextend=1
+
 
 [sge]
 ##Grid job submission commands
@@ -137,7 +149,9 @@ j=yes
 cwd=
 
 ```
-If you need any other options for your enviroment please contant us.
+If you need any other options for your enviroment please contant us or admin
+
+PBS & LSF need simple code hack. If you need it please request through issue.
 
 
 ## Usage
@@ -178,7 +192,10 @@ DONE
 
 
 ```
+Check the test folder "test/chunks/" for sequence split result.
+
 ### Run
+You don't need to run "dryrun" everytime.
 
 ```
 perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn 
@@ -195,3 +212,7 @@ Won Cheol Yim and John Cushman (2017) Divide and Conquer BLAST: using grid engin
 ## Copyright
 
 The program is copyright by Yim, Won Cheol.
+
+
+
+
