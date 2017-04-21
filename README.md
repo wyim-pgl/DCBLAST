@@ -184,7 +184,7 @@ Usage : dcblast.pl --ini config.ini --input input-fasta --size size-of-group --o
 
   --input <input filename> ##query fasta file
 
-  --size <output size> ## size of chunks usually a ll core x 2, if you have 160 core all nodes, you can use 320. please check it to your admin.
+  --size <output size> ## size of chunks usually all core x 2, if you have 160 core in nodes, you can use 320. please check it to your admin.
 
   --output <output filename> ##output folder name
 
