@@ -24,7 +24,7 @@ ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 For using recent version, please update BLAST path in config.ini
 
 
-```
+
 $ which blastn
 ```
 
@@ -154,6 +154,32 @@ If you need any other options for your enviroment please contant us or admin
 PBS & LSF need simple code hack. If you need it please request through issue.
 
 
+## Example sequence
+
+This sequences are randomly selected from plant species.
+The size and gene number informations are below.
+
+```
+test_db.fas
+
+Number of gene	35386
+Total size of gene	43546761
+Longest scaffold	16182
+Shortest scaffold	22
+```
+
+
+```
+test_query.fas
+
+Number of gene	6282
+Total size of gene	7247997
+Longest scaffold	11577
+Shortest scaffold	22
+```
+
+It usually finish within ~20min depends on HPC status and CPU speed.
+
 ## Usage
 
 
@@ -189,6 +215,8 @@ DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q commo
 DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q common.q -hold_jid dcblast_split -N dcblast_merge dcblast_merge.sh test/results 20]
 DRYRUN COMMAND : [qstat]
 DONE
+
+
 ```
 Check the test folder "test/chunks/" for sequence split result.
 
@@ -201,7 +229,18 @@ perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 2
 
 This run will splits file into 20 chunks, run on 20 cores and generated BLAST output file "test/results/merged" and chunked input file "test/chunks/"
 
+It will finish their search within ~20min depends on HPC status and CPU speed.
+
+For your research, please format database according to NCBI-BLAST+ instruction.
+Here is the brief examples.
+```
+makeblastdb -in your-nucleotide-db.fa -dbtype nucl ###for nucleotide sequence
+makeblastdb -in your-protein-db.fas -dbtype prot ###for protein sequence
+```
 
 ## Citation
 Won Cheol Yim and John Cushman (2017) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. PeerJ submitted.
 
+## Copyright
+
+The program is copyright by Yim, Won Cheol.
