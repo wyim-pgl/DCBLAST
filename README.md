@@ -1,9 +1,11 @@
 # DCBLAST
 
-The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerate BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical approach. 
+The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, HPC, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerate BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical approach. 
 
 - DCBLAST suppport all NCBI-BLAST+ suite.
 - DCBLAST generate exact same NCBI-BLAST+ result.
+- DCBLAST can use all options in NCBI-BLAST+ suite.
+- DCBLAST can run BLAST job across HPC.
 
 
 ## Requirement
@@ -24,7 +26,6 @@ ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 For using recent version, please update BLAST path in config.ini
 
 ```
-
 $ which blastn
 ```
 
@@ -100,7 +101,7 @@ Usage : dcblast.pl --ini config.ini --input input-fasta --size size-of-group --o
 
 ## Configuration
 
-Please edit config.ini before you run!!
+#Please edit config.ini before you run!!
 
 ```
 [dcblast]
@@ -164,8 +165,8 @@ test_db.fas
 
 Number of gene	35386
 Total size of gene	43546761
-Longest scaffold	16182
-Shortest scaffold	22
+Longest gene	16182
+Shortest gene	22
 ```
 
 
@@ -174,8 +175,8 @@ test_query.fas
 
 Number of gene	6282
 Total size of gene	7247997
-Longest scaffold	11577
-Shortest scaffold	22
+Longest gene	11577
+Shortest gene	22
 ```
 
 It usually finish within ~20min depends on HPC status and CPU speed.
@@ -199,8 +200,6 @@ Usage : dcblast.pl --ini config.ini --input input-fasta --size size-of-group --o
   --blast <blast name> ##blastp, blastx, blastn and etcs.
 
   --dryrun Option will only split fasta file into chunks
-
-
 ```
 
 
@@ -215,12 +214,10 @@ DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q commo
 DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q common.q -hold_jid dcblast_split -N dcblast_merge dcblast_merge.sh test/results 20]
 DRYRUN COMMAND : [qstat]
 DONE
-
-
 ```
 Check the test folder "test/chunks/" for sequence split result.
 
-### Run
+### Run with example
 You don't need to run "dryrun" everytime.
 
 ```
@@ -235,8 +232,10 @@ For your research, please format database according to NCBI-BLAST+ instruction.
 Here is the brief examples.
 ```
 makeblastdb -in your-nucleotide-db.fa -dbtype nucl ###for nucleotide sequence
+```
+```
 makeblastdb -in your-protein-db.fas -dbtype prot ###for protein sequence
 ```
 
 ## Citation
-Won Cheol Yim and John Cushman (2017) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. PeerJ submitted.
+Won Cheol Yim and John C. Cushman (2017) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. PeerJ submitted.
