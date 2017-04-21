@@ -9,7 +9,6 @@ The Basic Local Alignment Search Tool (BLAST) is by far best the most widely use
 
 
 ## Requirement
-
 Following basic softwares are needed to run
 
 - Perl (Any version 5+)
@@ -30,12 +29,12 @@ $ which blastn
 ```
 
 - Sun Grid Engine (Any version)
-
 ```
 $ which qsub
 ```
 
 - Grid cloud or distributed computing system.
+
 
 ## Prerequisites
 
@@ -61,7 +60,6 @@ $ cpanm Path::Tiny Data::Dumper Config::Tiny
 We strongly recommend to use Perlbrew http://perlbrew.pl/ to avoid having to type sudo
 
 We also recommend to use 'cpanm' https://github.com/miyagawa/cpanminus
-
 
 
 ## Installation
@@ -93,10 +91,7 @@ Usage : dcblast.pl --ini config.ini --input input-fasta --size size-of-group --o
   --blast <blast name> ##blastp, blastx, blastn and etcs.
 
   --dryrun Option will only split fasta file into chunks
-
-
 ```
-
 
 
 ## Configuration
@@ -148,7 +143,6 @@ o=log
 q=common.q
 j=yes
 cwd=
-
 ```
 If you need any other options for your enviroment please contant us or admin
 
@@ -169,7 +163,6 @@ Longest gene	16182
 Shortest gene	22
 ```
 
-
 ```
 test_query.fas
 
@@ -182,8 +175,6 @@ Shortest gene	22
 It usually finish within ~20min depends on HPC status and CPU speed.
 
 ## Usage
-
-
 ```
 perl dcblast.pl
 
@@ -207,7 +198,7 @@ Usage : dcblast.pl --ini config.ini --input input-fasta --size size-of-group --o
 
 ### Dryrun (--dryrun option will only split fasta file into chunks)
 ```
-perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn --dryrun
+perl dcblast.pl --ini config.ini --input example/test_query.fas --output test --size 20 --blast blastn --dryrun
 ```
 ```
 DRYRUN COMMAND : [qsub -M your@email -cwd -j yes -o log -pe SharedMem 1 -q common.q -N dcblast_split -t 1-20 dcblast_blastcmd.sh]
@@ -221,7 +212,7 @@ Check the test folder "test/chunks/" for sequence split result.
 You don't need to run "dryrun" everytime.
 
 ```
-perl dcblast.pl --ini config.ini --input example/test.fas --output test --size 20 --blast blastn 
+perl dcblast.pl --ini config.ini --input example/test_query.fas --output test --size 20 --blast blastn 
 ```
 
 This run will splits file into 20 chunks, run on 20 cores and generated BLAST output file "test/results/merged" and chunked input file "test/chunks/"
