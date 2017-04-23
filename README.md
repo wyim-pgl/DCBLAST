@@ -2,10 +2,11 @@
 
 The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, HPC, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerate BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical approach. 
 
+- DCBLAST can run BLAST job across HPC.
 - DCBLAST suppport all NCBI-BLAST+ suite.
 - DCBLAST generate exact same NCBI-BLAST+ result.
 - DCBLAST can use all options in NCBI-BLAST+ suite.
-- DCBLAST can run BLAST job across HPC.
+
 
 
 ## Requirement
