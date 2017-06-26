@@ -230,4 +230,5 @@ makeblastdb -in your-protein-db.fas -dbtype prot ###for protein sequence
 ```
 
 ## Citation
-Won Cheol Yim and John C. Cushman (2017) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. PeerJ submitted.
+Won Cheol Yim and John C. Cushman (2017) Divide and Conquer BLAST: using grid engines to accelerate BLAST and other sequence analysis tools. PeerJ 10.7717/peerj.3486 https://peerj.com/articles/3486/
+
