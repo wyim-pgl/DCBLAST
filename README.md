@@ -18,7 +18,7 @@ $ which perl
 $ perl --version
 ```
 
-- NCBI-BLAST+ (Any version)
+- NCBI-BLAST+ (Any version; tested 2.4.0+ - 2.7.1+)
 for easy approach, you can download binary version of blast from below link.
 ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST
 
