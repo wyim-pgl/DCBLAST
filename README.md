@@ -1,8 +1,8 @@
 # DCBLAST
 
-The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, HPC, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLASTBLAST search comparisons  over withinthe cluster, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerate BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical approach. 
+The Basic Local Alignment Search Tool (BLAST) is by far best the most widely used tool in for sequence analysis for rapid sequence similarity searching among nucleic acid or amino acid sequences. Recently, cluster, HPC, grid, and cloud environmentshave been are increasing more widely used and more accessible as high-performance computing systems. Divide and Conquer BLAST (DCBLAST) has been designed to perform run on grid system with query splicing which can run National Center for Biotechnology Information (NCBI) BLAST. BLAST search comparisons  over withinthe HPC, grid, and cloud computing grid environment by using a query sequence distribution approach NCBI BLAST. This is a promising tool to accelerate BLAST job dramatically accelerates the execution of BLAST query searches using a simple, accessible, robust, and practical approach. 
 
-- DCBLAST can run BLAST job across HPC.
+- DCBLAST can run BLAST job across HPC (SGE & SLURM).
 - DCBLAST suppport all NCBI-BLAST+ suite.
 - DCBLAST generate exact same NCBI-BLAST+ result.
 - DCBLAST can use all options in NCBI-BLAST+ suite.
@@ -30,8 +30,14 @@ $ which blastn
 ```
 
 - Sun Grid Engine (Any version)
+- SLURM (tested with 17.02.2)
+
+
 ```
+- SGE
 $ which qsub
+- SLURM
+$ which sbatch
 ```
 
 - Grid cloud or distributed computing system.
@@ -75,7 +81,7 @@ cd ~/scratch/  # We recommend to copy it on scratch disk.
 
 git clone git://github.com/ascendo/DCBLAST.git
 
-cd ~/scratch/DCBLAST
+cd ~/scratch/DCBLAST_{your_scheduler_SGE_or_SLURM}
 
 perl dcblast.pl
 
@@ -195,7 +201,7 @@ Usage : dcblast.pl --ini config.ini --input input-fasta --size size-of-group --o
 ```
 
 
-## Examples
+## Examples SGE
 
 ### Dryrun (--dryrun option will only split fasta file into chunks)
 ```
