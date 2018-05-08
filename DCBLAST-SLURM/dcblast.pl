@@ -60,22 +60,23 @@ write_blast_shell($dcblast_blastcmd, $config->{blast}, $opt_blast, $paths);
 write_merge_shell($dcblast_mergecmd);
 
 # blastjob
-my @slurm_blastjob = slurm_opt($config->{sge});
-push @slurm_blastjob, "--job-name=$config->{dcblast}{job_name_prefix}_split";
-push @slurm_blastjob, "--array=1-$cnt";
-push @slurm_blastjob, "--wrap=$dcblast_blastcmd";
-run_command(@slurm_blastjob);
+my @sbatch_blastjob = sbatch_opt($config->{slurm});
+push @sbatch_blastjob, "--job-name=$config->{dcblast}{job_name_prefix}_split";
+push @sbatch_blastjob, "--array=1-$cnt";
+push @sbatch_blastjob, "--wrap=$dcblast_blastcmd";
+run_command(@sbatch_blastjob);
 
 # mergejob
-my @slurm_mergejob = slurm_opt($config->{sge});
-push @slurm_mergejob, '--dependency=singleton';
+my @sbatch_mergejob = sbatch_opt($config->{slurm});
+push @sbatch_mergejob, '--dependency=singleton';
 #,"$config->{dcblast}{job_name_prefix}_split";
-push @slurm_mergejob, "--job-name=$config->{dcblast}{job_name_prefix}_split";
-push @slurm_mergejob, "--wrap=$dcblast_mergecmd $opt_output/results $cnt";
-run_command(@slurm_mergejob);
+push @sbatch_mergejob, "--job-name=$config->{dcblast}{job_name_prefix}_split";
+push @sbatch_mergejob, "--wrap=$dcblast_mergecmd $opt_output/results $cnt";
+run_command(@sbatch_mergejob);
 
 # qstat
 run_command('squeue -u $(whoami)');
+#run_command('squeue');
 
 print "DONE\n";
 
@@ -173,22 +174,22 @@ SHELL
     path($dcblast_mergecmd)->chmod("a+x");
 }
 
-sub slurm_opt {
-    my ($sge) = @_;
-    my @slurm_opts = ('sbatch');
+sub sbatch_opt {
+    my ($slurm) = @_;
+    my @sbatch_opts = ('sbatch');
 
-    for my $k (sort keys %$sge) {
+    for my $k (sort keys %$slurm) {
         next if $k eq 'N';
-        push @slurm_opts, "--$k";
+        push @sbatch_opts, "--$k";
         if ($k eq 'pe') {
-            push @slurm_opts, split(/ /, $sge->{$k});
+            push @sbatch_opts, split(/ /, $slurm->{$k});
         }
-        elsif (defined $sge->{$k} and $sge->{$k} ne '') {
-            push @slurm_opts, $sge->{$k};
+        elsif (defined $slurm->{$k} and $slurm->{$k} ne '') {
+            push @sbatch_opts, $slurm->{$k};
         }
     }
 
-    return @slurm_opts;
+    return @sbatch_opts;
 }
 
 sub run_command {
@@ -207,7 +208,7 @@ Usage : $0 --ini <ini filename> --input <input-fasta> --size <size-of-group> --o
 
   --ini <ini filename> ##config file ex)config.ini
 
-  --input <input filename> ##query fasta file 
+  --input <input filename> ##query fasta file
 
   --size <output size> ## size of chunks usually all core x 2, if you have 160 core all nodes, you can use 320. please check it to your admin.
 
