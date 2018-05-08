@@ -75,7 +75,7 @@ push @slurm_mergejob, "--wrap=$dcblast_mergecmd $opt_output/results $cnt";
 run_command(@slurm_mergejob);
 
 # qstat
-run_command('squeue');
+run_command('squeue -u $(whoami)');
 
 print "DONE\n";
 
