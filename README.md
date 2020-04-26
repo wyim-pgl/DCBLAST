@@ -6,6 +6,7 @@ The Basic Local Alignment Search Tool (BLAST) is by far best the most widely use
 - DCBLAST suppport all NCBI-BLAST+ suite.
 - DCBLAST generate exact same NCBI-BLAST+ result.
 - DCBLAST can use all options in NCBI-BLAST+ suite.
+![blast](https://raw.githubusercontent.com/wyim-pgl/DCBLAST/master/fig/fig-1-2x.jpg)
 
 
 ## Requirement
