@@ -8,7 +8,7 @@ The Basic Local Alignment Search Tool (BLAST) is by far best the most widely use
 - DCBLAST can use all options in NCBI-BLAST+ suite.
 
 
-![DCBLAST](https://dfzljdn9uc3pi.cloudfront.net/2017/3486/1/fig-1-2x.jpg)
+![blast](https://raw.githubusercontent.com/wyim-pgl/DCBLAST/master/fig/fig-1-2x.jpg)
 
 
 ## Requirement
